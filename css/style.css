@@ -1,0 +1,96 @@
+html,
+body,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #e5e5e5;
+  font-family: sans-serif, "cursive";
+}
+
+/* Targets class name, nav -> ul -> all decendants -> 1st Child */
+/* targeting nested elements */
+.container {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+}
+.container nav ul li:nth-child(1) {
+  font-size: 1em;
+}
+.container nav ul li:nth-child(2) {
+  font-size: 2em;
+}
+.container nav a {
+  text-decoration: none;
+}
+
+/* mixins */
+.transform {
+  width: 400px;
+  height: 500px;
+  background-color: yellow;
+  -ms-transform: rotate(20deg) scale(1.5);
+  -webkit-transform: rotate(20deg) scale(1.5);
+  transform: rotate(20deg) scale(1.5);
+  font-size: 3em;
+}
+
+.transform-2 {
+  width: 200px;
+  height: 300px;
+  background-color: yellow;
+  -ms-transform: rotate(20deg) scale(1.5);
+  -webkit-transform: rotate(20deg) scale(1.5);
+  transform: rotate(20deg) scale(1.5);
+}
+
+/* Extend/inheritance */
+.border2 {
+  margin: 20px;
+  color: #eee;
+}
+
+.border2, .border1, .border {
+  border: 1px solid #000000;
+  padding: 10px;
+  color: #333;
+}
+
+.border1 {
+  margin: 20px;
+}
+
+/* Pseudo Selectors */
+.element a {
+  text-decoration: none;
+  color: black;
+}
+.element a:hover {
+  cursor: pointer;
+}
+
+/* Operators */
+.header {
+  /* addition */
+  font-size: 6px;
+  /* Subtraction */
+  height: 75%;
+}
+
+/* Multiplication */
+.multi {
+  width: 100%;
+  /* Division */
+  height: 6px;
+}
+
+P:before {
+  content: "I am a string withquote";
+  font-family: cursiveserif;
+}
+
+/*# sourceMappingURL=style.css.map */

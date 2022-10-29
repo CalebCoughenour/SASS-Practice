@@ -1,0 +1,120 @@
+@import 'default';
+
+$primary-color: #e5e5e5;
+$secondary-color: #000000;
+$primary-font: sans-serif, "cursive";
+
+body{
+  background: $primary-color;
+  font-family: $primary-font;
+}
+
+/* Targets class name, nav -> ul -> all decendants -> 1st Child */
+// .container nav ul > li:nth-child(1){
+//   font-size: 1em;
+// }
+
+
+/* targeting nested elements */
+.container {
+  width: 100%;
+  height: 100%;
+  background: $secondary-color;
+  nav {
+    ul {
+      li {
+        &:nth-child(1){
+          font-size: 1em;
+        }
+        &:nth-child(2){
+          font-size: 2em;
+        }
+      }
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+/* mixins */
+
+@mixin transform_Me($prop1, $prop2){
+  width: $prop1;
+  height: $prop2;
+  background-color: yellow;
+  -ms-transform: rotate(20deg)scale(1.5);
+  -webkit-transform: rotate(20deg)scale(1.5);
+  transform: rotate(20deg)scale(1.5);
+}
+
+.transform {
+  @include transform_Me(400px, 500px);
+  font-size: 3em;
+}
+
+.transform-2 {
+  @include transform_Me(200px, 300px);
+}
+
+/* Extend/inheritance */
+%extend-new {
+  margin: 20px;
+  color: #eee;
+}
+
+%extend-border {
+  border: 1px solid #000000;
+  padding: 10px;
+  color: #333;
+}
+
+.border {
+  @extend %extend-border;
+}
+
+.border1 {
+  @extend %extend-border;
+  margin: 20px;
+}
+
+.border2 {
+  @extend %extend-border;
+  @extend %extend-new;
+}
+
+/* Pseudo Selectors */
+
+.element {
+  a{
+    text-decoration: none;
+    color: black;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+/* Operators */
+
+.header {
+  /* addition */
+  font-size: 4px + 2;
+  /* Subtraction */
+  height: 80% - 5%;
+}
+
+/* Multiplication */
+.multi {
+  width: 20% * 5;
+
+  /* Division */
+  height: (24px/4);
+}
+
+P{
+  &:before{
+    content: "I am a string with" + quote;
+    font-family: cursive + "serif";
+  }
+}
